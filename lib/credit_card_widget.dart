@@ -6,16 +6,16 @@ import 'package:flutter/material.dart';
 
 class CreditCardWidget extends StatefulWidget {
   const CreditCardWidget({
-    Key key,
-    @required this.cardNumber,
-    @required this.expiryDate,
-    @required this.cardHolderName,
-    @required this.cvvCode,
-    @required this.showBackView,
+    Key? key,
+    required this.cardNumber,
+    required this.expiryDate,
+    required this.cardHolderName,
+    required this.cvvCode,
+    required this.showBackView,
     this.animationDuration = const Duration(milliseconds: 500),
-    this.height,
-    this.width,
-    this.textStyle,
+    required this.height,
+    required this.width,
+    required this.textStyle,
     this.cardBgColor = const Color(0xff1b447b),
   })  : assert(cardNumber != null),
         assert(showBackView != null),
@@ -38,11 +38,11 @@ class CreditCardWidget extends StatefulWidget {
 
 class _CreditCardWidgetState extends State<CreditCardWidget>
     with SingleTickerProviderStateMixin {
-  AnimationController controller;
-  Animation<double> _frontRotation;
-  Animation<double> _backRotation;
-  Gradient backgroundGradientColor;
-  CardDetector cardDetector;
+  late AnimationController controller;
+  late Animation<double> _frontRotation;
+  late Animation<double> _backRotation;
+  late Gradient backgroundGradientColor;
+  late CardDetector cardDetector;
 
   bool isAmex = false;
 
@@ -149,7 +149,7 @@ class _CreditCardWidgetState extends State<CreditCardWidget>
     BuildContext context,
     Orientation orientation,
   ) {
-    final TextStyle defaultTextStyle = Theme.of(context).textTheme.headline6.merge(
+    final TextStyle? defaultTextStyle = Theme.of(context).textTheme.headline6?.merge(
           TextStyle(
             color: Colors.black,
             fontFamily: 'halter',
@@ -245,7 +245,7 @@ class _CreditCardWidgetState extends State<CreditCardWidget>
     BuildContext context,
     Orientation orientation,
   ) {
-    final TextStyle defaultTextStyle = Theme.of(context).textTheme.headline6.merge(
+    final TextStyle? defaultTextStyle = Theme.of(context).textTheme.headline6?.merge(
           TextStyle(
             color: Colors.white,
             fontFamily: 'halter',
